@@ -1,0 +1,20 @@
+<div fxLayout.md="row" fxLayoutGap="20px" fxLayout.sm="column" fxLayout.xs="column" fxLayout.lg="row" class="row-content" *ngFor="let m of menu" fxLayoutAlign="center" fxLayoutGap="20px">
+	<div fxFlex.md="50" fxFlex.lg="50" fxLayoutAlign="center">
+		<img class="img-fluid ex-card" style="border-radius: 5px;" height="250px" width="200px" src="{{m.imageUrl}}" alt="{{m.name}}" style="background-color:#FFCCBC">
+	</div>
+		<div fxFlex.md="50" fxFlex.lg="50">
+		  <h1 class="font-weight-bold" style="color: teal;font-size:xx-large;">{{m.name}}</h1>
+		  <h2 class="font-weight-bold">{{m.colsto}}</h2>
+		  <h3 style="border-bottom: 2px ridge;">Price: {{m.price | currency:'INR'}}</h3>
+		  <img src="/assets/images/Apple-logo-black-and-white.png" style="height: 50px">
+		  <div class="mb-3">
+			  <button class="view-all" (click)="onConfirm()" style="background-color:#ff9f00;outline: none;" mat-raised-button>Add to cart</button>
+		 </div>
+		</div>
+  </div>
+  <div fxLayout="row">
+	<div fxLayout="column" style="border-bottom: 2px ridge;padding-bottom: 10px;">
+		<h2 style="margin: 0;font-weight: bold;font-family: 'Times New Roman', Times, serif;">About this product:</h2>
+		<li *ngFor="let d of content">{{d.des}}</li>
+	</div>
+</div>

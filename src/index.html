@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chowki Dhukan</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/assets/images/Logo icon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4b96c25cd9.js" crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+<style>
+  @keyframes slideInRight {
+    from {
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  button.chatLauncher {
+    animation-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    border: 4px solid #075cc2;
+    padding: 1em;
+    border-radius: 8px;
+    margin: 0;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #454545;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 264px;
+    opacity: 0;
+  }
+
+  button.chatLauncher.open {
+    animation-name: slideInRight;
+    opacity: 1;
+  }
+
+  button.chatLauncher:hover,
+  button.chatLauncher:focus {
+    background-color: rgb(225, 225, 254);
+    border: 4px solid #0053ba;
+  }
+  
+  button.chatLauncher:focus {
+    outline: 1px solid #0053ba;
+    outline-offset: -4px;
+  }
+</style>
+</head>
+<body class="mat-typography">
+  <button type="button" class="chatLauncher" style="display:none;">
+    <div>
+      <strong>Have questions?</strong> Talk with Crypto our Virtual Assistant.
+      <!-- <img src="/assets/images/Crypto.jpeg" height="125px",width="50px"> -->
+    </div>
+  </button>
+  <app-root></app-root>
+</body>
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "7a93afae-ef67-4142-944c-7b61e38a4c7f", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "e583a81d-481a-4e04-a0e4-94d0ec78cc52",
+
+    showLauncher: false,
+    onLoad: function(instance) {
+      // Select the button element from the page.
+      const button = document.querySelector('.chatLauncher');
+  
+      // Add the event listener to open your web chat.
+      button.addEventListener('click', function clickListener() {
+        instance.openWindow();
+      });
+  
+      // Render the web chat. Nothing appears on the page, because the launcher is
+      // hidden and the web chat window is closed by default.
+      instance.render().then(function() {
+        // Now that web chat has been rendered (but is still closed), we make the
+        // custom launcher button visible.
+        button.style.display = 'block';
+        button.classList.add('open');
+      });
+    }
+  };
+
+  setTimeout(function(){const t=document.createElement('script');t.src='https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js';document.head.appendChild(t);});
+</script>
+</html>

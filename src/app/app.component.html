@@ -1,0 +1,65 @@
+<mat-drawer-container>
+    <mat-drawer #drawer class="side-nav">
+        <mat-list role="list" class="side-list">
+            <mat-list-item routerLink='/profile' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">account_box</mat-icon>
+                </mat-icon>
+                <div mat-line>Profile</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/welcome' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">home</mat-icon>
+                </mat-icon>
+                <div mat-line>Home</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/mobile' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">stay_current_portrait</mat-icon>
+                </mat-icon>
+                <div mat-line>Mobiles</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/contactus' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <mat-icon class="example-tab-icon">contact_page</mat-icon>
+                </mat-icon>
+                <div mat-line>Contact us</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item routerLink='/aboutus' routerLinkActive='active' (click)="drawer.toggle()" class="list-item">
+                <mat-icon mat-list-icon>
+                    <i class="material-icons">groups</i>
+                </mat-icon>
+                <div mat-line>About Us</div>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-drawer>
+    
+    <mat-drawer-content fxLayout="column" fxFlexFill>
+      
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="background: linear-gradient(to bottom, #6699ff 0%, #6699ff 100%);height: 65px;color: white;padding-right: 5px;">
+        <div fxLayoutAlign="center center">
+            <button mat-icon-button (click)="drawer.toggle()" style="outline: none;"><span class="material-icons">menu</span></button>
+            <button mat-button routerLink="/welcome" style="font-family: 'Carter One', cursive; font-size: x-large;">Chowki Dhukan</button>
+        </div>
+        <div fxLayoutAlign="center center">
+            <button style="outline: none;" *ngIf="_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/order-confirm' routerLinkActive='active2'>Orders & Returns</button>
+            <button style="outline: none;" *ngIf="_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/cart-confirm' routerLinkActive='active1'><i class="material-icons">add_shopping_cart</i>Cart</button>
+            <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/login' routerLinkActive='active2'>Orders & Returns</button>
+            <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/login' routerLinkActive='active1'><i class="material-icons">add_shopping_cart</i>Cart</button>
+            <button style="outline: none;" *ngIf="_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/profile' routerLinkActive='active1'><i class="material-icons">settings_applications</i>Manage Account</button>
+            <button style="outline: none;" *ngIf="!_authService.loggedIn()" mat-raised-button style="margin-right:20px" routerLink='/login' routerLinkActive='active'><i class="material-icons">login</i>Login</button>
+            <button style="outline: none;" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" mat-button routerLinkActive='active'><i class="material-icons">login</i>Logout</button>
+        </div>
+    </div>
+        
+    <div fxFlex>
+        <router-outlet></router-outlet>
+    </div>
+        <app-footer></app-footer>
+    </mat-drawer-content>
+</mat-drawer-container>

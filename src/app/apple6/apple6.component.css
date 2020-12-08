@@ -1,0 +1,26 @@
+.row-content{
+  padding: 25px;
+  margin-right: 20px;
+}
+
+.example-full-width{
+  width:10%
+}
+
+.view-all:hover {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px #871A1A;
+}
+
+.ex-card:hover{
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px #871A1A;
+}
+
+.view-all{
+  transition: 0.5s ease;
+}
+
+.ex-card{
+  transition: 0.5s ease;
+}

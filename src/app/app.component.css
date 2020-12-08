@@ -1,0 +1,52 @@
+.side-nav{
+    width: 200px;
+    background: linear-gradient(to bottom, #6699ff 0%, #6699ff 100%);
+}
+
+.side-list{
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.list-item{
+    outline: none;
+    color: floralwhite;
+    font-size: medium;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer {
+    background-color: #871A1A;
+    margin: 0px auto;
+    padding: 20px;
+    color: white;
+}
+
+.footer-title{
+    background-color: #252525;
+    margin: 0px auto;
+    padding: 10px;
+    color: white;
+}
+
+.row-content{
+    padding: 20px;
+}
+
+.side-list{
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+.active {
+    color: black;
+    background-color:rgb(15, 203, 236);
+}
+
+.address{
+    padding: 0px 16px;
+}

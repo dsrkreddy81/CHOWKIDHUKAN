@@ -1,0 +1,32 @@
+.example-card { 
+  width: 300px;
+  display:inline-flex;
+  margin:30px 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease-out; 
+}
+
+.example-card:hover {
+  transform: translateY(-5px) scale(1.06) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11), 0 24px 46px var(--box-shadow-color);
+}
+
+.example-card:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+
+.title {
+  font-family: 'Carter One', cursive; 
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin-left: 92%;
+}
